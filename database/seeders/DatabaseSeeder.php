@@ -22,7 +22,10 @@ class DatabaseSeeder extends Seeder
 //                'email' => 'test@example.com',
 //            ]);
 
-        \App\Models\TaskGroup::factory(5)
+//        \App\Models\TaskGroup::factory(5)
+//            ->create();
+
+        \App\Models\Task::factory(200)
             ->create();
     }
 }
