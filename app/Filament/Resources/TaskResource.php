@@ -10,6 +10,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Column\BadgeColumn;
 
 class TaskResource extends Resource
 {
@@ -43,9 +44,17 @@ class TaskResource extends Resource
                 Tables\Columns\TextColumn::make('user.name')
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('taskGroup.title')
+                Tables\Columns\BadgeColumn::make('taskGroup.title')
                     ->sortable()
-                    ->searchable(),
+                    ->searchable()
+                    ->colors([
+                        'secondary',
+                        'primary' => 'Backlog',
+                        'warning' => 'In Progress',
+                        'success' => 'Done',
+                        'danger' => 'To do',
+
+                    ]),
 //                Tables\Columns\TextColumn::make('description'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime('d/m/y H:i'),
