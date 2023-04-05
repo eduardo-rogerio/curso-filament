@@ -53,7 +53,14 @@ class TaskResource extends Resource
                     ->dateTime('d/m/y H:i'),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('user')
+                    ->searchable()
+                    ->relationship('user', 'name'),
+                Tables\Filters\SelectFilter::make('taskGroup')
+                    ->searchable()
+                    ->relationship('taskGroup', 'title')
+                    ->multiple()
+                    ->label('Grup de tarefa'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
